@@ -67,3 +67,19 @@ let lessThan1 = three < four
 let lessThan2 = thirty < four 
 // Addition is giving incorrect answer, the + operator is concatenating the strings "3" and "4" to give the answer "34".
 // We can fix this by converting the strings to numbers using .toNumber or starting with numbers when the variables are declared
+
+//Section 3
+if (0) console.log('#1 zero is true') //Will not print, 0 is not a truthy value.
+if ("0") console.log('#2 zero is true') // Will print because non-empty string is considered truthy value.
+if (null) console.log('null is true') // Will not print, null will not return true in a boolean 
+if (-1) console.log('negative is true') // Will print, any non-zero number considered truthy value. In this case -1 is truthy
+if (1) console.log('positive is true') // Will print, number 1 is truthy value.
+
+//Section 4
+//Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a and b. What does the ‘+=’ do? 
+let a = 4, b = 7; 
+let result = `${a} + ${b} is `; 
+
+(a + b < 10 ? 'less than 10' : 'greater than 10') 
+console.log(result)
+// The "+=" is shorthand for concatenating a string from a string already defined. result += is result = result +
