@@ -197,4 +197,25 @@
     // timezone: New Zealand Daylight Time
 
 //Section 9
+// let teamSports = ['Hockey', 'Cricket', 'Volleyball']; 
+// let dog1 = 'Bingo'; 
+// let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+// let moreSports = teamsports;
+// /* a */ 
+// moreSports.push("Basketball");
+// moreSports.unshift("Waterpolo");
+// /* b */
+// let dog2 = dog1;
+// dog2 = "Spot";
+// /* C */
+// let cat2 = cat1;
+// cat2.name = "Evie";
+/* D = No they haven't changed, they are primitive objects, copies value but doesn't create new object */
 
+/* E */
+// let moreSports = ['Hockey', 'Cricket', 'Volleyball'];
+// let dog1 = 'Bingo';
+// let cat1 = { name: 'Fluffy', breed: 'Siberian' };
+
+// let cat2 = { ...cat1 };
+// let moreSports2 = [...moreSports];
