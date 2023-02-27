@@ -219,3 +219,37 @@
 
 // let cat2 = { ...cat1 };
 // let moreSports2 = [...moreSports];
+
+// Question 10
+function Person(name, age) { 
+    this.name = name; 
+    this.age = age; 
+    this.human = true; 
+    } 
+// //a
+  let person1 = new Person("Keegan", 22);
+
+// //b 
+    let person2 = new Person("Charlotte",22)
+    
+
+//     console.log(person1.name); // Keegan
+//     console.log(person1.age); // 22
+//     console.log(person1.human); // True
+
+//     console.log(person2.name); // Charlotte
+//     console.log(person2.age); // 22
+//     console.log(person2.human); // True
+// c
+class PersonClass {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+      this.human = true;
+    }
+  }
+  
+  let person3 = new PersonClass("Will", 21);
+  console.log(person3.name); // Will
+  console.log(person3.age); // 21
+  console.log(person3.human); // True
