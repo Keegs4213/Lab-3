@@ -85,11 +85,87 @@
 // b) Create variants of the camelCase function that use different types of for loops, and
 // c) with and without the conditional operator.
 
-function camelCase(cssProp) {
-    return cssProp.replace(/-)
-}
+//a
+// function camelCase(cssProp) {
+//   return cssProp.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+// }
+//b
+// function camelCase(cssProp) {
+//   let result = "";
+//   for (let i = 0; i < cssProp.length; i++) {
+//     if (cssProp[i] === "-") {
+//       i++;
+//       result += cssProp[i].toUpperCase();
+//     } else {
+//       result += cssProp[i];
+//     }
+//   }
+//   return result;
+// }
+// c
+// function camelCase(cssProp) { // define function called camelCase that takes single argument "cssProp"
+//     let result = ""; // declares result is an empty string, store cssProp
+//     for (let i = 0; i < cssProp.length; i++) { // starts for loop iterates over each character of cssProp
+//         result += cssProp[i] === "-" ? cssProp[++i].toUpperCase() : cssProp[i]; // ternary operator to check if there is a dash, if so, skip dash and append next character in cssProp to convert to upper case.
+//     } return result; // returns cssProp string stored in result
+// }
+// console.log(camelCase("margin-left")); // marginLeft
+// console.log(camelCase("background-image")); // backgroundImage
+// console.log(camelCase("display")); // display
 
 
-console.log(camelCase('margin-left')) // marginLeft
-console.log(camelCase('background-image')) // backgroundImage
-console.log(camelCase('display')) // display
+// 5. Decimal number operations in JavaScript can lead to unexpected results, as in the
+// following:
+// let twentyCents = 0.20
+// let tenCents = 0.10
+// console.log(`${twentyCents} + ${tenCents} = ${twentyCents + tenCents}`)
+// 0.2 + 0.1 = 0.30000000000000004
+// We can sometimes avoid this using the toFixed function to force the number of decimal
+// places as below, but it’s not always useful:
+// let fixedTwenty = twentyCents.toFixed(2);
+// let fixedTen = tenCents.toFixed(2);
+// console.log(fixedTwenty + fixedTen) //why is this not working?
+// a) Explain why the above code returns the wrong answer
+// b) Create a function currencyAddition(float1, float2) which safely adds the two
+// decimal numbers float1 and float2 and returns the correct float result.
+// c) Create a function currencyOperation(float1, float2, operation) which
+// safely performs the given operation (either +, -, / or *) on the two numbers and returns the correct float result. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch may be useful.
+// d) (Extension) Extend the above function to include a fourth argument numDecimals
+// which allows the operation to support different amounts of decimal places from 1 to 10.
+// HINT: Assume 2 decimal places for b) and c) and use a multiplication factor. Test with
+// different values as well as the below:
+// console.log(0.3 == currencyAddition(0.1, 0.2)) // true
+// console.log(0.3 == currencyOperation(0.1, 0.2, '+')) // true
+
+//a The code above returns the wrong answer due to imprecise calculations, floating point numbers are not accurate when there are large amounts of decimal values, causes rounding error. JS can only have 64 bits of memory for numbers, when numbers exceed 16 digits they become inaccurate
+
+//b
+// function currencyAddition(float1, float2) {
+//     let result = (float1 * 100 + float2 * 100) / 100;
+//     return result;
+// } console.log(currencyAddition(0.1,0.2))
+
+//c
+// function currencyOperation(float1, float2, operation) {
+//     let result;
+//     switch(operation) {
+//         case "+":
+//             result = (float1 * 100 + float2 * 100) /100;
+//             break;
+//         case "-":
+//             result = (float1 * 100 - float2 * 100) / 100;
+//             break;
+//         case "*":
+//             result = (float1 * float2).toFixed(2);
+//             break;
+//         case "/":
+//             result = (float1 / float2).toFixed(2);
+//             break;    
+//         default:
+//             console.log("invalid operation")  
+//     }
+//     return result;
+// }  
+// console.log(currencyOperation(0.5, 0.6, "*"))
+
+//d
