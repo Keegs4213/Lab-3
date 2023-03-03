@@ -350,15 +350,61 @@ let salaries = {
 // console.log(sumSalaries(salaries));
 
 //b
-function topEarner(salaries) {
-  let highestSalary = 0;
-  let topEarnerName = "";
-  for (let i in salaries) {
-    if (salaries[i] > highestSalary) {
-      highestSalary = salaries[i];
-      topEarnerName = i;
-    }
-  }
-  return topEarnerName;
+// function topEarner(salaries) {
+//   let highestSalary = 0;
+//   let topEarnerName = "";
+//   for (let i in salaries) {
+//     if (salaries[i] > highestSalary) {
+//       highestSalary = salaries[i];
+//       topEarnerName = i;
+//     }
+//   }
+//   return topEarnerName;
+// }
+// console.log(topEarner(salaries));
+
+// 10.The following code uses the Date object to print the current time and the number of hours
+// that have passed today so far. Extend the code to do the following:
+// const today = new Date();
+// console.log('Current time is ' + today.toLocaleTimeString())
+// console.log(today.getHours() + ' hours have passed so far today')
+// a) Print the total number of minutes that have passed so far today
+// b) Print the total number of seconds that have passed so far today
+// c) Calculate and print your age as: 'I am x years, y months and z days old'
+// d) Write a function daysInBetween(date1, date2) which calculates and returns the amount
+// of days in between the two given dates.
+
+//a
+// const today = new Date();
+// let minutesPassed = today.getMinutes() + (today.getHours() * 60);
+
+// console.log(minutesPassed + "minutes have passed so far today")
+
+//b
+// const today = new Date();
+// let secondsPassed = (today.getMinutes() * 60) + (today.getHours() * 3600) + today.getSeconds();
+
+// console.log(secondsPassed + "seconds have passed so far today")
+
+//c
+// const today = new Date();
+// const dateOfBirth = new Date("2001-02-20")
+// let ageInYears = today.getFullYear() - dateOfBirth.getFullYear();
+// let ageInMonths = today.getMonth() - dateOfBirth.getMonth();
+// let ageInDays = today.getDate() - dateOfBirth.getDate();
+
+// console.log("I am " + ageInYears + "years," + ageInMonths ,"months and" + ageInDays + "days old")
+
+//d
+const today = new Date();
+const dateOfBirth = new Date("2001-02-20");
+
+function daysInBetween(date1, date2) {
+  let differenceMS = date2 - date1; // difference in milliseconds between now and bday
+  let millisecondsPerDay = 24 * 60 * 60 * 1000; // convert milliseconds to days
+  let differenceDays = Math.floor(differenceMS / millisecondsPerDay); // use formula to work out difference in days, math.floor rounds to make nice number
+
+  return differenceDays;
 }
-console.log(topEarner(salaries));
+
+console.log(daysInBetween(dateOfBirth, today));
