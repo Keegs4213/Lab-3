@@ -300,4 +300,29 @@ phoneBookABC.set('Barry', '0433221117')
 phoneBookABC.set('Caroline', '0455221182')
 
 //a 
-const phoneBookDEF = new Map ()
+// const phoneBookDEF = new Map ();
+
+//b
+// const phoneBookDEF = new Map ([
+//     ["Keegan", "0210756333"]
+//     ["Charlotte", "124576788"]
+//     ["William", "10324846211"]
+// ]);
+
+
+//c
+// phoneBookABC.set("Caroline", "002222776151");
+
+//d
+// function printPhoneBook(contacts) {
+//     contacts.forEach((value, key) => {
+//         console.log("${key}: ${value}");
+//     });
+// }
+// console.log(printPhoneBook())
+
+//e
+// const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
+
+//f
+// console.log(Array.from(phoneBook.keys()));
