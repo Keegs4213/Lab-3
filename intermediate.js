@@ -113,7 +113,6 @@
 // console.log(camelCase("background-image")); // backgroundImage
 // console.log(camelCase("display")); // display
 
-
 // 5. Decimal number operations in JavaScript can lead to unexpected results, as in the
 // following:
 // let twentyCents = 0.20
@@ -160,12 +159,12 @@
 //             break;
 //         case "/":
 //             result = (float1 / float2).toFixed(2);
-//             break;    
+//             break;
 //         default:
-//             console.log("invalid operation")  
+//             console.log("invalid operation")
 //     }
 //     return result;
-// }  
+// }
 // console.log(currencyOperation(0.5, 0.6, "*"))
 
 // //d
@@ -184,12 +183,12 @@
 //             break;
 //         case "/":
 //             result = (float1 / float2).toFixed(numDecimals);
-//             break;    
+//             break;
 //         default:
-//             console.log("invalid operation")  
+//             console.log("invalid operation")
 //     }
 //     return result;
-// }  
+// }
 // console.log(currencyOperation(0.5, 0.6, "*", 2))
 
 // 6. Create a function unique(duplicatesArray) which takes an array parameter that may
@@ -201,17 +200,104 @@
 
 // function unique(duplicatesArray) {
 //     const uniqueArray = [];
-  
+
 //     for (let i = 0; i < duplicatesArray.length; i++) {
 //       if (!uniqueArray.includes(duplicatesArray[i])) {
 //         uniqueArray.push(duplicatesArray[i]);
 //       }
 //     }
-  
+
 //     return uniqueArray;
 //   }
 
-
-
 // console.log(unique(colours)) // [ 'red', 'green', 'blue', 'yellow', 'orange' ]
 // console.log(unique(testScores)) // [ 55, 84, 97, 63, 32, 91, 43 ]
+
+// Use the following array of book objects to practice the array functions for map, find and
+// filter. Test each of your answers to the below tasks.
+const books = [
+  {
+    id: 1,
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    year: 1925,
+  },
+  { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+  { id: 3, title: "1984", author: "George Orwell", year: 1949 },
+  { id: 4, title: "Brave New World", author: "Aldous Huxley", year: 1932 },
+  {
+    id: 5,
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    year: 1951,
+  },
+];
+// a) Write a function getBookTitle(bookId) that uses the find function to return the
+// title of the book object with the matching id.
+// b) Write a function getOldBooks() that uses the filter function to return all book
+// objects written before 1950.
+// c) Write a function addGenre() that uses the map function to add a new genre property
+// to all of the above books, with the value ‘classic’.
+// d) (Extension) Write a function getTitles(authorInitial) that uses map and
+// filter together to return an array of book titles for books written by authors whose
+// names start with authorInitial.
+// e) (Extension) Write a function latestBook() that uses find and forEach to get the
+// book with the most recent publication date.
+
+//a
+// function getBookTitle(bookId) {
+//     const book = books.find(book => book.id === bookId);
+//     return book ? book.title : null;
+// }
+// console.log(getBookTitle(3));
+// console.log(getBookTitle(6));
+
+//b
+// function getOldBooks() {
+//   return books.filter(book => book.year < 1950);
+// }
+// console.log(getOldBooks());
+
+//c
+// function addGenre() {
+//     return books.map(book => ({...book, genre: "classic"}));
+// }
+// console.log(addGenre());
+
+//d
+// function getTitles(authorInitial) {
+//   return books
+//     .filter((book) => book.author.charAt(0) === authorInitial)
+//     .map((book) => book.title);
+// }
+// console.log(getTitles("G"));
+
+// //e
+// function latestBook() {
+//     let latestBook = null;
+//     books.forEach(book => {
+//         if (!latestBook || book.year > latestBook.year) {
+//             latestBook = book;
+//         }
+//     });
+//     return latestBook;
+// }
+// console.log(latestBook());
+
+// The following code creates a new Map object for storing names beginning with A, B, or C
+// with their phone numbers.
+
+// a) Create a new phoneBookDEF Map to store names beginning with D, E or F
+// b) Initialise the contents of phoneBookDEF by passing in an array of keys/values
+// c) Update the phone number for Caroline
+// d) Write a function printPhoneBook(contacts) that prints the names and phone
+// numbers in the given Map
+// e) Combine the contents of the two individual Maps into a single phoneBook Map
+// f) Print out the full list of names in the combined phone book
+const phoneBookABC = new Map() //an empty map to begin with
+phoneBookABC.set('Annabelle', '0412312343')
+phoneBookABC.set('Barry', '0433221117')
+phoneBookABC.set('Caroline', '0455221182')
+
+//a 
+const phoneBookDEF = new Map ()
