@@ -400,7 +400,7 @@ const today = new Date();
 const dateOfBirth = new Date("2001-02-20");
 
 function daysInBetween(date1, date2) {
-  let differenceMS = date2 - date1; // difference in milliseconds between now and bday
+  let differenceMS = date2 - date1; // difference in milliseconds between now and birthday
   let millisecondsPerDay = 24 * 60 * 60 * 1000; // convert milliseconds to days
   let differenceDays = Math.floor(differenceMS / millisecondsPerDay); // use formula to work out difference in days, math.floor rounds to make nice number
 
