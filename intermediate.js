@@ -294,12 +294,12 @@ const books = [
 // numbers in the given Map
 // e) Combine the contents of the two individual Maps into a single phoneBook Map
 // f) Print out the full list of names in the combined phone book
-const phoneBookABC = new Map() //an empty map to begin with
-phoneBookABC.set('Annabelle', '0412312343')
-phoneBookABC.set('Barry', '0433221117')
-phoneBookABC.set('Caroline', '0455221182')
+const phoneBookABC = new Map(); //an empty map to begin with
+phoneBookABC.set("Annabelle", "0412312343");
+phoneBookABC.set("Barry", "0433221117");
+phoneBookABC.set("Caroline", "0455221182");
 
-//a 
+//a
 // const phoneBookDEF = new Map ();
 
 //b
@@ -308,7 +308,6 @@ phoneBookABC.set('Caroline', '0455221182')
 //     ["Charlotte", "124576788"]
 //     ["William", "10324846211"]
 // ]);
-
 
 //c
 // phoneBookABC.set("Caroline", "002222776151");
@@ -326,3 +325,40 @@ phoneBookABC.set('Caroline', '0455221182')
 
 //f
 // console.log(Array.from(phoneBook.keys()));
+
+// 9. Given the below salaries object, perform the following tasks.
+let salaries = {
+  Timothy: 35000,
+  David: 25000,
+  Mary: 55000,
+  Christina: 75000,
+  James: 43000,
+};
+// a) Write a function sumSalaries(salaries) that calculates and returns the total of all salaries
+// b) Write a function topEarner(salaries) that calculates and returns the name of the person
+// earning the highest salary
+
+//a
+// function sumSalaries(salaries) {
+//   let totalSalary = 0;
+//   for(let i in salaries) {
+//     console.log(salaries[i]);
+//     totalSalary += salaries[i];
+//   }
+// return totalSalary
+// }
+// console.log(sumSalaries(salaries));
+
+//b
+function topEarner(salaries) {
+  let highestSalary = 0;
+  let topEarnerName = "";
+  for (let i in salaries) {
+    if (salaries[i] > highestSalary) {
+      highestSalary = salaries[i];
+      topEarnerName = i;
+    }
+  }
+  return topEarnerName;
+}
+console.log(topEarner(salaries));
