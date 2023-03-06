@@ -125,24 +125,43 @@
 
 
 //b 
-
 function printMe() {
   console.log("printing debounced message");
 }
 printMe = debounce(printMe); //create this debounce function for a)
 
-
 function debounce(func, ms) {
-   let timeout;
-   return function() {
-    clearTimeout(timeout);
-    timeout = setTimeout(func, ms)
-   }
+  let timeout;
+  return function() {
+   clearTimeout(timeout);
+   timeout = setTimeout(func, ms)
   }
-  console.log(debounce(printMe, 2000))
-
+ }
+let printMeX = debounce(printMe, 2000)
 
 //fire off 3 calls to printMe within 300ms - only the LAST one should print, after  1000ms of no calls
-setTimeout(printMe, 100);
-setTimeout(printMe, 200);
-setTimeout(printMe, 300);
+setTimeout(printMeX, 100);
+setTimeout(printMeX, 200);
+setTimeout(printMeX, 300);
+
+
+
+
+
+
+
+
+
+
+
+// function debounce(func, ms) {
+//    let timeout;
+//    return function() {
+//     const context = this;
+//     const args = arguments;
+//     clearTimeout(timeout);
+//     timeout = setTimeout(function() {
+//       func.apply(context, args)
+//     }, ms)
+//    }
+//   }
