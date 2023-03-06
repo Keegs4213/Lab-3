@@ -125,7 +125,86 @@
 
 // Program 5 : Modify the program 4 to use Promises concept and achieve the required result
 
-function orderReceived() {
+// function orderReceived() {
+//   return new Promise(function (resolve, reject) {
+//     console.log("Pizza order received");
+//     setTimeout(function () {
+//       resolve();
+//     }, 500);
+//   });
+// }
+
+// function startPreparingPizza() {
+//   return new Promise(function (resolve, reject) {
+//     console.log("Started preparing pizza");
+//     setTimeout(function () {
+//       resolve();
+//     }, 500);
+//   });
+// }
+
+// function prepareBase() {
+//   return new Promise(function (resolve, reject) {
+//     console.log("Pizza base is prepared");
+//     setTimeout(function () {
+//       resolve();
+//     }, 500);
+//   });
+// }
+
+// function addCheese() {
+//   return new Promise(function (resolve, reject) {
+//     console.log("Added cheese to pizza");
+//     setTimeout(function () {
+//       resolve();
+//     }, 500);
+//   });
+// }
+// function addVeggies() {
+//   return new Promise(function (resolve, reject) {
+//     console.log("Added veggies to pizza");
+//     setTimeout(function () {
+//       resolve();
+//     }, 500);
+//   });
+// }
+
+// function pizzaHeated() {
+//   return new Promise(function (resolve, reject) {
+//     console.log("Pizza is heated");
+//     setTimeout(function () {
+//       resolve();
+//     }, 500);
+//   });
+// }
+
+// function pizzaReady() {
+//   console.log("Pizza is ready");
+// }
+
+// orderReceived()
+//   .then(function () {
+//     return startPreparingPizza();
+//   })
+//   .then(function () {
+//     return prepareBase();
+//   })
+//   .then(function () {
+//     return addCheese();
+//   })
+//   .then(function () {
+//     return addVeggies();
+//   })
+//   .then(function () {
+//     return pizzaHeated();
+//   })
+//   .then(function () {
+//     pizzaReady();
+//   });
+
+// Program 6 : Modify the program 5 to use async and await concept to achieve the required result
+
+async function orderReceived() {
   return new Promise(function (resolve, reject) {
     console.log("Pizza order received");
     setTimeout(function () {
@@ -134,7 +213,7 @@ function orderReceived() {
   });
 }
 
-function startPreparingPizza() {
+async function startPreparingPizza() {
   return new Promise(function (resolve, reject) {
     console.log("Started preparing pizza");
     setTimeout(function () {
@@ -143,7 +222,7 @@ function startPreparingPizza() {
   });
 }
 
-function prepareBase() {
+async function prepareBase() {
   return new Promise(function (resolve, reject) {
     console.log("Pizza base is prepared");
     setTimeout(function () {
@@ -152,7 +231,7 @@ function prepareBase() {
   });
 }
 
-function addCheese() {
+async function addCheese() {
   return new Promise(function (resolve, reject) {
     console.log("Added cheese to pizza");
     setTimeout(function () {
@@ -160,7 +239,7 @@ function addCheese() {
     }, 500);
   });
 }
-function addVeggies() {
+async function addVeggies() {
   return new Promise(function (resolve, reject) {
     console.log("Added veggies to pizza");
     setTimeout(function () {
@@ -169,7 +248,7 @@ function addVeggies() {
   });
 }
 
-function pizzaHeated() {
+async function pizzaHeated() {
   return new Promise(function (resolve, reject) {
     console.log("Pizza is heated");
     setTimeout(function () {
@@ -178,30 +257,20 @@ function pizzaHeated() {
   });
 }
 
-function pizzaReady() {
+async function pizzaReady() {
   console.log("Pizza is ready");
 }
 
-orderReceived()
-  .then(function () {
-    return startPreparingPizza();
-  })
-  .then(function () {
-    return prepareBase();
-  })
-  .then(function () {
-    return addCheese();
-  })
-  .then(function () {
-    return addVeggies();
-  })
-  .then(function () {
-    return pizzaHeated();
-  })
-  .then(function () {
+async function makePizza() {
+  try {
+    await startPreparingPizza();
+    await prepareBase();
+    await addCheese();
+    await addVeggies();
+    await pizzaHeated();
     pizzaReady();
-  });
-
-// orderReceived(startPreparingPizza);
-
-// Program 6 : Modify the program 5 to use async and await concept to achieve the required result
+  } catch (error) {
+    console.log(error);
+  }
+}
+makePizza();
