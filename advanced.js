@@ -108,7 +108,6 @@
 // }
 // printMe = debounce(printMe); //create this debounce function for a)
 
-
 // function debounce(func) {
 //    let timeout;
 //    return function() {
@@ -117,51 +116,59 @@
 //    }
 //   }
 
-
 // //fire off 3 calls to printMe within 300ms - only the LAST one should print, after  1000ms of no calls
 // setTimeout(printMe, 100);
 // setTimeout(printMe, 200);
 // setTimeout(printMe, 300);
 
-
-//b 
-function printMe() {
-  console.log("printing debounced message");
-}
-printMe = debounce(printMe); //create this debounce function for a)
-
-function debounce(func, ms) {
-  let timeout;
-  return function() {
-   clearTimeout(timeout);
-   timeout = setTimeout(func, ms)
-  }
- }
-let printMeX = debounce(printMe, 2000)
-
-//fire off 3 calls to printMe within 300ms - only the LAST one should print, after  1000ms of no calls
-setTimeout(printMeX, 100);
-setTimeout(printMeX, 200);
-setTimeout(printMeX, 300);
-
-
-
-
-
-
-
-
-
-
+//b
+// function printMe() {
+//   console.log("printing debounced message");
+// }
+// printMe = debounce(printMe); //create this debounce function for a)
 
 // function debounce(func, ms) {
-//    let timeout;
-//    return function() {
-//     const context = this;
-//     const args = arguments;
-//     clearTimeout(timeout);
-//     timeout = setTimeout(function() {
-//       func.apply(context, args)
-//     }, ms)
-//    }
+//   let timeout;
+//   return function() {
+//    clearTimeout(timeout);
+//    timeout = setTimeout(func, ms)
 //   }
+//  }
+// let printMeX = debounce(printMe, 2000)
+
+// //fire off 3 calls to printMe within 300ms - only the LAST one should print, after  1000ms of no calls
+// setTimeout(printMeX, 100);
+// setTimeout(printMeX, 200);
+// setTimeout(printMeX, 300);
+
+//c
+// function printMe(msg) {
+//   // let msg = "";
+//   console.log("Printing debounced message:", msg);
+// }
+// printMe = debounce(printMe, 1000);
+
+// function debounce(func, ms) {
+//   let timeout;
+//   return function () {
+//     const args = arguments
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => {
+//     func.apply(this, args);
+//   }, ms);
+//   };
+// }
+
+// //fire off 3 calls to printMe within 300ms - only the LAST one should print, after  1000ms of no calls
+// setTimeout(() => printMe("First message"), 100);
+// setTimeout(() => printMe("Second message"), 200);
+// setTimeout(() => printMe("Third message"), 300);
+
+//Q4
+// 4. The Fibonacci sequence of numbers is a famous pattern where the next number in the  sequence is the sum of the previous 2.
+// e.g. 1, 1, 2, 3, 5, 8, 13, 21, 34, etc.
+// a) Write a function printFibonacci() using setInterval that outputs a number in  the Fibonacci sequence every second.
+// b) Write a new version printFibonacciTimeouts() that uses nested setTimeout calls to do the same thing
+// c) Extend one of the above functions to accept a limit argument, which tells it how many  numbers to print before stopping.
+
+//a
