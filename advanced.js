@@ -232,52 +232,48 @@
 
 // printFibonacci(10);
 
-
 //Q5
-// 5. The following car object has several properties and a method which uses them to print a  description. When calling the function normally this works as expected, but using it from  within setTimeout fails. Why? 
-// let car = { 
-// make: "Porsche", 
-// model: '911', 
-// year: 1964, 
+// 5. The following car object has several properties and a method which uses them to print a  description. When calling the function normally this works as expected, but using it from  within setTimeout fails. Why?
+// let car = {
+// make: "Porsche",
+// model: '911',
+// year: 1964,
 // description() {
-// console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); } 
-// }; 
-// car.description(); //works 
-// setTimeout(car.description, 200); //fails 
-// a) Fix the setTimeout call by wrapping the call to car.description() inside a  function 
-// b) Change the year for the car by creating a clone of the original and overriding it c) Does the delayed description() call use the original values or the new values from  b)? Why? 
-// d) Use bind to fix the description method so that it can be called from within  setTimeout without a wrapper function 
-// e) Change another property of the car by creating a clone and overriding it, and test that  setTimeout still uses the bound value from d) 
-
+// console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); }
+// };
+// car.description(); //works
+// setTimeout(car.description, 200); //fails
+// a) Fix the setTimeout call by wrapping the call to car.description() inside a  function
+// b) Change the year for the car by creating a clone of the original and overriding it c) Does the delayed description() call use the original values or the new values from  b)? Why?
+// d) Use bind to fix the description method so that it can be called from within  setTimeout without a wrapper function
+// e) Change another property of the car by creating a clone and overriding it, and test that  setTimeout still uses the bound value from d)
 
 //A
 
-
-// let car = { 
-//     make: "Porsche", 
-//     model: '911', 
-//     year: 1964, 
+// let car = {
+//     make: "Porsche",
+//     model: '911',
+//     year: 1964,
 //     description() {
-//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); } 
-//     }; 
-//     car.description(); //works 
+//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); }
+//     };
+//     car.description(); //works
 //     setTimeout(() => {
 //         car.description();
 //      }, 200); //fails
 
-
 //b
 
-// let car = { 
-//     make: "Porsche", 
-//     model: '911', 
-//     year: 1964, 
+// let car = {
+//     make: "Porsche",
+//     model: '911',
+//     year: 1964,
 //     description() {
-//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); } 
-//     }; 
+//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); }
+//     };
 //     let car2 = car;
 //     car2.year = 2023;
-//     car.description(); //works 
+//     car.description(); //works
 //     setTimeout(() => {
 //         car.description();
 //      }, 200); //fails
@@ -287,56 +283,79 @@
 
 //D
 
-// let car = { 
-//     make: "Porsche", 
-//     model: '911', 
-//     year: 1964, 
+// let car = {
+//     make: "Porsche",
+//     model: '911',
+//     year: 1964,
 //     description() {
-//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); } 
-//     }; 
+//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); }
+//     };
 //     let car2 = car;
 //     car2.year = 2023;
-//     car.description(); //works 
+//     car.description(); //works
 //     setTimeout(car.description.bind(car), 200);
-
 
 //E
 
-// let car = { 
-//     make: "Porsche", 
-//     model: '911', 
-//     year: 1964, 
+// let car = {
+//     make: "Porsche",
+//     model: '911',
+//     year: 1964,
 //     description() {
-//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); } 
-//     }; 
+//     console.log(`This car is a ${this.make} ${this.model} from ${this.year}`); }
+//     };
 //     let car2 = {car};
 //     car2.year = 2023;
 //     let car3= {car};
 //     car3.model = "Taycan";
-//     car.description(); //works 
+//     car.description(); //works
 //     setTimeout(car.description.bind(car), 200);
 
-// 6. Use the Function prototype to add a new delay(ms) function to all functions, which can  be used to delay the call to that function by ms milliseconds. 
-// function multiply(a, b) { 
-// console.log( a * b ); 
-// } 
-// multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds 
-// a) Use the example multiply function below to test it with, as above, and assume that all  delayed functions will take two parameters 
-// b) Use apply to improve your solution so that delayed functions can take any number of  parameters 
-// c) Modify multiply to take 4 parameters and multiply all of them, and test that your  delay prototype function still works. 
+// 6. Use the Function prototype to add a new delay(ms) function to all functions, which can  be used to delay the call to that function by ms milliseconds.
+// function multiply(a, b) {
+// console.log( a * b );
+// }
+// multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+// a) Use the example multiply function below to test it with, as above, and assume that all  delayed functions will take two parameters
+// b) Use apply to improve your solution so that delayed functions can take any number of  parameters
+// c) Modify multiply to take 4 parameters and multiply all of them, and test that your  delay prototype function still works.
 
 //A
 
-Function.prototype.delay = function(ms) {
-    let fn = this;
-    return function
-}
+// Function.prototype.delay = function(ms) {
+//     let fn = this;
+//     return function(...args) {
+//       setTimeout(() => fn.apply(this, args), ms);
+//     };
+//   };
 
-}
+// function multiply(a, b) {
+//     console.log( a * b );
+//     }
+//     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
 
+//B
+// Function.prototype.delay = function(ms) {
+//     let fn = this;
+//     return function(...args) {
+//       setTimeout(() => fn.apply(this, args), ms);
+//     };
+//   };
 
+// function multiply(a, b) {
+//     console.log( a * b );
+//     }
+//     multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
 
-function multiply(a, b) { 
-    console.log( a * b ); 
-    } 
-    multiply.delay(500)(5, 5); // prints 25 after 500 milliseconds
+//C
+
+// Function.prototype.delay = function(ms) {
+//     let fn = this;
+//     return function(...args) {
+//       setTimeout(() => fn.apply(this, args), ms);
+//     };
+//   };
+// function multiply (a, b, c, d) {
+//     console.log(a * b * c * d)
+// }
+// multiply.delay(500)(2, 3, 4, 5)  // prints 120 after 500 milliseconds
