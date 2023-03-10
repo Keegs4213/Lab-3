@@ -245,44 +245,44 @@ const books = [
 // book with the most recent publication date.
 
 //a
-// function getBookTitle(bookId) {
-//     const book = books.find(book => book.id === bookId);
-//     return book ? book.title : null;
-// }
-// console.log(getBookTitle(3));
-// console.log(getBookTitle(6));
+function getBookTitle(bookId) {
+    const book = books.find(book => book.id === bookId);
+    return book ? book.title : null;
+}
+console.log(getBookTitle(3));
+console.log(getBookTitle(6));
 
 //b
-// function getOldBooks() {
-//   return books.filter(book => book.year < 1950);
-// }
-// console.log(getOldBooks());
+function getOldBooks() {
+  return books.filter(book => book.year < 1950);
+}
+console.log(getOldBooks());
 
 //c
-// function addGenre() {
-//     return books.map(book => ({...book, genre: "classic"}));
-// }
-// console.log(addGenre());
+function addGenre() {
+    return books.map(book => ({...book, genre: "classic"}));
+}
+console.log(addGenre());
 
 //d
-// function getTitles(authorInitial) {
-//   return books
-//     .filter((book) => book.author.charAt(0) === authorInitial)
-//     .map((book) => book.title);
-// }
-// console.log(getTitles("G"));
+function getTitles(authorInitial) {
+  return books
+    .filter((book) => book.author.charAt(0) === authorInitial)
+    .map((book) => book.title);
+}
+console.log(getTitles("G"));
 
 // //e
-// function latestBook() {
-//     let latestBook = null;
-//     books.forEach(book => {
-//         if (!latestBook || book.year > latestBook.year) {
-//             latestBook = book;
-//         }
-//     });
-//     return latestBook;
-// }
-// console.log(latestBook());
+function latestBook() {
+    let latestBook = null;
+    books.forEach(book => {
+        if (!latestBook || book.year > latestBook.year) {
+            latestBook = book;
+        }
+    });
+    return latestBook;
+}
+console.log(latestBook());
 
 // The following code creates a new Map object for storing names beginning with A, B, or C
 // with their phone numbers.
@@ -302,38 +302,42 @@ phoneBookABC.set("Caroline", "0455221182");
 //a
 // const phoneBookDEF = new Map ();
 
+
 //b
-// const phoneBookDEF = new Map ([
-//     ["Keegan", "0210756333"]
-//     ["Charlotte", "124576788"]
-//     ["William", "10324846211"]
-// ]);
+const contacts = [
+  ["Keegan", "0210756333"],
+  ["Charlotte", "124576788"],
+  ["William", "10324846211"],
+]; //put the array in separate variable and pass it
+
+const phoneBookDEF = new Map(contacts);
 
 //c
-// phoneBookABC.set("Caroline", "002222776151");
+phoneBookABC.set("Caroline", "002222776151");
 
 //d
-// function printPhoneBook(contacts) {
-//     contacts.forEach((value, key) => {
-//         console.log("${key}: ${value}");
-//     });
-// }
-// console.log(printPhoneBook())
+function printPhoneBook(arr) {
+    arr.forEach(([key, value]) => { //when passing an arguments match the pattern of the keys
+        console.log(`${key}: ${value}`)// missed the backticks ``
+    })
+ return //dont forget to return
+}
+printPhoneBook(contacts)
 
 //e
-// const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
+const phoneBook = new Map([...phoneBookABC, ...phoneBookDEF]);
 
 //f
-// console.log(Array.from(phoneBook.keys()));
+console.log(Array.from(phoneBook.keys()));
 
 // 9. Given the below salaries object, perform the following tasks.
-let salaries = {
-  Timothy: 35000,
-  David: 25000,
-  Mary: 55000,
-  Christina: 75000,
-  James: 43000,
-};
+// let salaries = {
+//   Timothy: 35000,
+//   David: 25000,
+//   Mary: 55000,
+//   Christina: 75000,
+//   James: 43000,
+// };
 // a) Write a function sumSalaries(salaries) that calculates and returns the total of all salaries
 // b) Write a function topEarner(salaries) that calculates and returns the name of the person
 // earning the highest salary
@@ -349,7 +353,7 @@ let salaries = {
 // }
 // console.log(sumSalaries(salaries));
 
-//b
+// //b
 // function topEarner(salaries) {
 //   let highestSalary = 0;
 //   let topEarnerName = "";
@@ -378,13 +382,13 @@ let salaries = {
 // const today = new Date();
 // let minutesPassed = today.getMinutes() + (today.getHours() * 60);
 
-// console.log(minutesPassed + "minutes have passed so far today")
+// console.log(minutesPassed + " minutes have passed so far today")
 
 //b
 // const today = new Date();
 // let secondsPassed = (today.getMinutes() * 60) + (today.getHours() * 3600) + today.getSeconds();
 
-// console.log(secondsPassed + "seconds have passed so far today")
+// console.log(secondsPassed + " seconds have passed so far today")
 
 //c
 // const today = new Date();
@@ -396,15 +400,15 @@ let salaries = {
 // console.log("I am " + ageInYears + "years," + ageInMonths ,"months and" + ageInDays + "days old")
 
 //d
-const today = new Date();
-const dateOfBirth = new Date("2001-02-20");
+// const today = new Date();
+// const dateOfBirth = new Date("2001-02-20");
 
-function daysInBetween(date1, date2) {
-  let differenceMS = date2 - date1; // difference in milliseconds between now and birthday
-  let millisecondsPerDay = 24 * 60 * 60 * 1000; // convert milliseconds to days
-  let differenceDays = Math.floor(differenceMS / millisecondsPerDay); // use formula to work out difference in days, math.floor rounds to make nice number
+// function daysInBetween(date1, date2) {
+//   let differenceMS = date2 - date1; // difference in milliseconds between now and birthday
+//   let millisecondsPerDay = 24 * 60 * 60 * 1000; // convert milliseconds to days
+//   let differenceDays = Math.floor(differenceMS / millisecondsPerDay); // use formula to work out difference in days, math.floor rounds to make nice number
 
-  return differenceDays;
-}
+//   return differenceDays;
+// }
 
-console.log(daysInBetween(dateOfBirth, today));
+// console.log(daysInBetween(dateOfBirth, today));

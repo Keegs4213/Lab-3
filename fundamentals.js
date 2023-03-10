@@ -13,7 +13,7 @@
 // // //Q4
 // !true = false
 
-// //Q5 
+// //Q5
 // 6 / "3" = 2
 
 // //Q6
@@ -56,152 +56,139 @@
 // //Q1
 // let three = "3"
 // let four = "4"
-// let thirty = "30" 
+// let thirty = "30"
 
 // let addition = three + four
-// let multiplication = three * four 
-// let division = three / four 
-// let subtraction = three - four 
+// let multiplication = three * four
+// let division = three / four
+// let subtraction = three - four
 
-// let lessThan1 = three < four 
-// let lessThan2 = thirty < four 
+// let lessThan1 = three < four
+// let lessThan2 = thirty < four
 // // Addition is giving incorrect answer, the + operator is concatenating the strings "3" and "4" to give the answer "34".
 // // We can fix this by converting the strings to numbers using .toNumber or starting with numbers when the variables are declared
 
 // //Section 3
 // if (0) console.log('#1 zero is true') //Will not print, 0 is not a truthy value.
 // if ("0") console.log('#2 zero is true') // Will print because non-empty string is considered truthy value.
-// if (null) console.log('null is true') // Will not print, null will not return true in a boolean 
+// if (null) console.log('null is true') // Will not print, null will not return true in a boolean
 // if (-1) console.log('negative is true') // Will print, any non-zero number considered truthy value. In this case -1 is truthy
 // if (1) console.log('positive is true') // Will print, number 1 is truthy value.
 
 // //Section 4
-// //Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a and b. What does the ‘+=’ do? 
-// let a = 4, b = 7; 
-// let result = `${a} + ${b} is `; 
+// //Rewrite this if using the ternary/conditional operator '?'. Test it with different values for a and b. What does the ‘+=’ do?
+let a = 4, b = 7;
+let result = `${a} + ${b} is `;
 
-// (a + b < 10 ? 'less than 10' : 'greater than 10') 
+// (a + b < 10 ? 'less than 10' : 'greater than 10')
 // console.log(result)
 // // The "+=" is shorthand for concatenating a string from a string already defined. result += is result = result +
 
 // //Section 5
-// // Rewrite the following function using: a) function expression syntax, and b) arrow function  syntax. Test each version to make sure they work the same. 
-// function getGreeting(name) { 
-// return 'Hello ' + name + '!'; 
-// } 
+// // Rewrite the following function using: a) function expression syntax, and b) arrow function  syntax. Test each version to make sure they work the same.
+// function getGreeting(name) {
+// return 'Hello ' + name + '!';
+// }
 
 // // a function expression syntax
 // const getGreeting = function(name) {
 //     return "hello" + name + "!";
 // }
 
-// // b arrow function syntax
-// function getGreeting = (name) => "Hello" + name + "!";
-    
+// b arrow function syntax
+const getGreeting = (name) => "Hello" + name + "!"; //arrow functions doesnt use the reserved keyword 'function'
+
 
 // // Section 6
-//     const westley = { 
-//     name: 'Westley', 
-//     numFingers: 5 
-//     } 
-//     const rugen = { 
-//     name: 'Count Rugen', 
-//     numFingers: 6 
-//     } 
-    
-// const inigo = {
-//     firstName : "Inigo",
-//     lastName: "Montoya"
-//     greeting(person) {
-//         let greeting = 'Hello ${person.name} ${this.lastName}, my name is $(this.firstName).';
-//         console.log(greeting + this.getCatchPhrase(person));
-//     }
-//     getCatchPhrase: (person) => person.numFingers === ? {"My name is Inigo Montoya. You killed my father. Prepare to die" :  'Nice to meet you.';  
-//     }
+    const westley = {
+    name: 'Westley',
+    numFingers: 5
+    }
+    const rugen = {
+    name: 'Count Rugen',
+    numFingers: 6
+    }
 
-// inigo.greeting(westley);
-// inigo.greeting(rugen);
+const inigo = {
+    firstName : "Inigo",
+    lastName: "Montoya",
+    greeting(person) {
+        let greeting = `Hello ${person.name} ${this.lastName}, my name is ${this.firstName}.`; //dont forget the template literals
+        console.log(greeting + this.getCatchPhrase(person));
+    },
+
+    getCatchPhrase: (person) => person.numFingers === 6 ? "My name is Inigo Montoya. You killed my father. Prepare to die" :  'Nice to meet you.' //forgot to add 6 to your
+
+    }
+
+inigo.greeting(westley);
+inigo.greeting(rugen);
 
 
 // //Section 7
-// const basketballGame = {
-//     score: 0,
-//     freeThrow() {
-//       this.score++;
-//       return this;
-//     },
-//     basket() {
-//       this.score += 2;
-//       return this;
-//     },
-//     threePointer() {
-//       this.score += 3;
-//       return this;
-//     },
-//     halfTime() {
-//       console.log(`Halftime score is ${this.score}, with ${this.fouls} fouls.`);
-//       return this;
-//     },
-//     fullTime() {
-//       console.log(`Full time score is ${this.score}, with ${this.fouls} fouls.`);
-//       return this;
-//     },
-//     fouls: 0,
-//     addFoul() {
-//       this.fouls++;
-//       return this;
-//     }
-//   };
-//     basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime();
+const basketballGame = {
+    score: 0,
+    freeThrow() {
+      this.score++;
+      return this;
+    },
+    basket() {
+      this.score += 2;
+      return this;
+    },
+    threePointer() {
+      this.score += 3;
+      return this;
+    },
+    halfTime() {
+      console.log(`Halftime score is ${this.score}, with ${this.fouls} fouls.`);
+      return this;
+    },
+    fullTime() {
+      console.log(`Full time score is ${this.score}, with ${this.fouls} fouls.`);
+      return this;
+    },
+    fouls: 0,
+    addFoul() {
+      this.fouls++;
+      return this;
+    }
+  };
+    basketballGame.basket().freeThrow().freeThrow().basket().threePointer().halfTime();
 
 
 // Question 8
-// const sydney = { 
-//     name: 'Sydney', 
-//     population: 5_121_000, 
-//     state: 'NSW', 
-//     founded: '26 January 1788', 
-//     timezone: 'Australia/Sydney' 
-//     }
-// const auckland = {
-//     name: "Auckland",
-//     population: 1_657_000,
-//     state: "AKL",
-//     founded: "1840",
-//     timezone: "New Zealand Daylight Time"
-// }
+const sydney = {
+    name: 'Sydney',
+    population: 5_121_000,
+    state: 'NSW',
+    founded: '26 January 1788',
+    timezone: 'Australia/Sydney'
+    }
+const auckland = {
+    name: "Auckland",
+    population: 1_657_000,
+    state: "AKL",
+    founded: "1840",
+    timezone: "New Zealand Daylight Time"
+}
 
-//     function printObject(obj) {
-//         for (let prop in obj) {
-//           console.log(`${prop}: ${obj[prop]}`);
-//         }
-//       }
-    // printObject(sydney);//name: Sydney
-    // fundamentals.js:169
-    // population: 5121000
-    // fundamentals.js:169
-    // state: NSW
-    // fundamentals.js:169
-    // founded: 26 January 1788
-    // fundamentals.js:169
-    // timezone: Australia/Sydney
+    function printObject(obj) {
+        for (let prop in obj) {
+          console.log(`${prop}: ${obj[prop]}`);
+        }
+      }
+    printObject(sydney)
 
-    // printObject(auckland);// name: Auckland
-    // fundamentals.js:176
-    // population: 1657000
-    // fundamentals.js:176
-    // state: AKL
-    // fundamentals.js:176
-    // founded: 1840
-    // fundamentals.js:176
-    // timezone: New Zealand Daylight Time
+    printObject(auckland)
+
 
 //Section 9
-// let teamSports = ['Hockey', 'Cricket', 'Volleyball']; 
-// let dog1 = 'Bingo'; 
+// let teamSports = ['Hockey', 'Cricket', 'Volleyball'];
+// let dog1 = 'Bingo';
 // let cat1 = { name: 'Fluffy', breed: 'Siberian' };
 // let moreSports = teamsports;
-// /* a */ 
+// /* a */
 // moreSports.push("Basketball");
 // moreSports.unshift("Waterpolo");
 // /* b */
@@ -221,17 +208,17 @@
 // let moreSports2 = [...moreSports];
 
 // Question 10
-function Person(name, age) { 
-    this.name = name; 
-    this.age = age; 
-    this.human = true; 
-    } 
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.human = true;
+    }
 // //a
   let person1 = new Person("Keegan", 22);
 
-// //b 
+// //b
     let person2 = new Person("Charlotte",22)
-    
+
 
 //     console.log(person1.name); // Keegan
 //     console.log(person1.age); // 22
@@ -248,7 +235,7 @@ class PersonClass {
       this.human = true;
     }
   }
-  
+
   let person3 = new PersonClass("Will", 21);
   console.log(person3.name); // Will
   console.log(person3.age); // 21
