@@ -360,28 +360,26 @@
 // }
 // multiply.delay(500)(2, 3, 4, 5)  // prints 120 after 500 milliseconds
 
-
-// 7. In JavaScript, the toString method is used to convert an object to a string representation.  By default, when an object is converted to a String, it returns a string that looks something  like [object Object].  
-// However, we can define our own toString methods for custom objects to provide a more  meaningful string representation. 
-// a) Define a custom toString method for the Person object that will format and print  their details 
-// b) Test your method by creating 2 different people using the below constructor function  and printing them 
+// 7. In JavaScript, the toString method is used to convert an object to a string representation.  By default, when an object is converted to a String, it returns a string that looks something  like [object Object].
+// However, we can define our own toString methods for custom objects to provide a more  meaningful string representation.
+// a) Define a custom toString method for the Person object that will format and print  their details
+// b) Test your method by creating 2 different people using the below constructor function  and printing them
 // c) Create a new constructor function Student that uses call to inherit from Person and  add an extra property cohort
-// d) Add a custom toString for Student objects that formats and prints their details. Test  with 2 students. 
-// function Person(name, age, gender) { 
-// this.name = name; 
-// this.age = age; 
-// this.gender = gender; 
-// } 
-// const person1 = new Person('James Brown', 73, 'male') 
-// console.log('person1: '+person1) //prints person1: [object Object] 
-
+// d) Add a custom toString for Student objects that formats and prints their details. Test  with 2 students.
+// function Person(name, age, gender) {
+// this.name = name;
+// this.age = age;
+// this.gender = gender;
+// }
+// const person1 = new Person('James Brown', 73, 'male')
+// console.log('person1: '+person1) //prints person1: [object Object]
 
 //a
-// function Person(name, age, gender) { 
-//     this.name = name; 
-//     this.age = age; 
-//     this.gender = gender; 
-    
+// function Person(name, age, gender) {
+//     this.name = name;
+//     this.age = age;
+//     this.gender = gender;
+
 //     this,toString = function() {
 //         return "${this.name} (${this.age}, ${this.gender})"
 //     }
@@ -399,7 +397,6 @@
 //     this.age = age;
 //     this.gender = gender;
 
-    
 //     this.toString = function() {
 //       return `${this.name} (${this.age}, ${this.gender}), ${this.cohort})`;
 //     }
@@ -412,12 +409,77 @@
 //     this.cohort = cohort;
 //   }
 
-
 // //D
 
-
 // const student1 = new Student('Keegan Greig', 22, 'Male', 'SE2023');
-// console.log(student1.toString()); 
+// console.log(student1.toString());
 
 // const student2 = new Student('Charlotte', 22, 'Female', 'SE2023');
-// console.log(student2.toString()); 
+// console.log(student2.toString());
+
+//Q8
+// 8. The following DigitalClock class uses an interval to print the time every second once  started, until stopped.
+class DigitalClock {
+  constructor(prefix) {
+    this.prefix = prefix;
+  }
+  display() {
+    let date = new Date();
+    //create 3 variables in one go using array destructuring
+    let [hours, mins, secs] = [
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+    ];
+    if (hours < 10) hours = "0" + hours;
+    if (mins < 10) mins = "0" + mins;
+    if (secs < 10) secs = "0" + secs;
+    console.log(`${this.prefix} ${hours}:${mins}:${secs}`);
+  }
+  stop() {
+    clearInterval(this.timer);
+  }
+  start() {
+    this.display();
+    this.timer = setInterval(() => this.display(), 1000);
+  }
+}
+const myClock = new DigitalClock("my clock:");
+myClock.start();
+// a) Create a new class PrecisionClock that inherits from DigitalClock and adds the  parameter precision – the number of ms between 'ticks'. This precision parameter  should default to 1 second if not supplied.
+// b) Create a new class AlarmClock that inherits from DigitalClock and adds the  parameter wakeupTime in the format hh:mm. When the clock reaches this time, it  should print a 'Wake Up' message and stop ticking. This wakeupTime parameter should  default to 07:00 if not supplied.
+
+//A
+// class PrecisionClock extends DigitalClock {
+//     constructor(prefix, precision = 1000) {
+//         super(prefix);
+//         this.precision = precision;
+//     }
+
+//     start() {
+//         this.display();
+//         this.timer = setInterval(() => this.display(), this.precision);
+//     }
+// }
+
+// //B
+// class AlarmClock extends DigitalClock {
+//   constructor(prefix, wakeupTime = "07:00") {
+//     super(prefix);
+//     this.wakeupTime = wakeupTime;
+//   }
+
+//   display() {
+//     let date = new Date();
+//     let [hours, mins] = [date.getHours(), date.getMinutes()];
+//     if (hours < 10) hours = "0" + hours;
+//     if (mins < 10) mins = "0" + mins;
+//     console.log(`${this.prefix} ${hours}:${mins}`);
+//     if (`${hours}:${mins}` === this.wakeupTime) {
+//       console.log("Wake Up");
+//       this.stop();
+//     }
+//   }
+// }
+// const myAlarmClock = new AlarmClock('my alarm clock:', '20:37');
+// myAlarmClock.start();
